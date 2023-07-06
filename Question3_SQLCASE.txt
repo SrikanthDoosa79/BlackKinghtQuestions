@@ -1,0 +1,30 @@
+-- create a table
+CREATE TABLE students  (
+  id INTEGER PRIMARY KEY,
+  name varchar NOT NULL,
+  marks INTEGER
+);
+-- insert some values
+INSERT INTO students VALUES (1, 'Matt', 44);
+INSERT INTO students VALUES (2, 'John', 57);
+INSERT INTO students VALUES (3, 'Lucas',78);
+INSERT INTO students VALUES (4, 'xavier',39);
+INSERT INTO students VALUES (5, 'knight',91);
+
+-- fetch some values
+SELECT ID, NAME, marks, CASE 
+    WHEN marks > 90 then 'A+' 
+    WHEN marks > 70 AND marks <= 90 then 'A'
+    WHEN marks > 50 AND marks <= 70 then 'B'
+    WHEN marks >= 40 AND marks <= 50 then 'C'
+    WHEN marks < 40 then 'FAIL'
+    ELSE 'A'
+  END AS Grade 
+  FROM students;
+  
+Output
+1|Matt|44|C
+2|John|57|B
+3|Lucas|78|A
+4|xavier|39|FAIL
+5|knight|91|A+
